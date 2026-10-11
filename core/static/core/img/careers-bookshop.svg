@@ -1,0 +1,32 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 440 300" role="img" aria-label="Illustration of a cosy bookstore shelf">
+  <defs>
+    <linearGradient id="w" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#F6F1E4"/><stop offset="1" stop-color="#EFE8D6"/></linearGradient>
+  </defs>
+  <rect x="4" y="4" width="432" height="292" rx="18" fill="url(#w)"/>
+  <rect x="4" y="4" width="432" height="292" rx="18" fill="none" stroke="#C89B3C" stroke-width="2"/>
+  <!-- window/lamp -->
+  <circle cx="372" cy="52" r="26" fill="#C89B3C" opacity=".35"/><circle cx="372" cy="52" r="14" fill="#C89B3C"/>
+  <rect x="368" y="78" width="8" height="26" fill="#16302A"/>
+  <!-- shelf 1 -->
+  <g>
+    <rect x="30" y="64" width="22" height="82" rx="2" fill="#A63D40"/><rect x="54" y="52" width="26" height="94" rx="2" fill="#16302A"/>
+    <rect x="82" y="70" width="20" height="76" rx="2" fill="#3D7A54"/><rect x="104" y="58" width="24" height="88" rx="2" fill="#C89B3C"/>
+    <rect x="130" y="76" width="22" height="70" rx="2" fill="#1F433A"/>
+    <g transform="rotate(12 176 146)"><rect x="156" y="60" width="22" height="86" rx="2" fill="#A63D40"/></g>
+    <rect x="216" y="62" width="24" height="84" rx="2" fill="#3D7A54"/><rect x="242" y="50" width="26" height="96" rx="2" fill="#16302A"/>
+    <rect x="270" y="72" width="22" height="74" rx="2" fill="#C89B3C"/><rect x="294" y="60" width="24" height="86" rx="2" fill="#A63D40"/>
+  </g>
+  <rect x="22" y="146" width="320" height="8" rx="2" fill="#16302A"/>
+  <!-- shelf 2 -->
+  <g>
+    <rect x="34" y="176" width="24" height="76" rx="2" fill="#16302A"/><rect x="60" y="164" width="22" height="88" rx="2" fill="#C89B3C"/>
+    <rect x="84" y="182" width="26" height="70" rx="2" fill="#A63D40"/><rect x="112" y="170" width="22" height="82" rx="2" fill="#3D7A54"/>
+    <rect x="170" y="190" width="104" height="14" rx="2" fill="#A63D40"/><rect x="176" y="204" width="96" height="14" rx="2" fill="#16302A"/><rect x="166" y="218" width="112" height="16" rx="2" fill="#3D7A54"/>
+    <rect x="290" y="168" width="24" height="84" rx="2" fill="#1F433A"/><rect x="316" y="180" width="20" height="72" rx="2" fill="#C89B3C"/>
+  </g>
+  <rect x="22" y="252" width="320" height="8" rx="2" fill="#16302A"/>
+  <!-- plant -->
+  <rect x="368" y="226" width="32" height="34" rx="4" fill="#A63D40"/>
+  <path d="M384 226 C360 200 366 176 384 164 C402 176 408 200 384 226Z" fill="#3D7A54"/>
+  <path d="M384 226 C404 210 424 214 430 198 C412 196 392 206 384 226Z" fill="#1F433A"/>
+</svg>

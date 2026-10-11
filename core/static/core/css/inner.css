@@ -1,0 +1,249 @@
+/* ==========================================================================
+   INKWELL BOOKS — inner.css
+   Premium look for every secondary page (careers, privacy, wishlist, cart,
+   checkout, orders, tracking, categories, search, dashboard, settings).
+   NOT loaded on Home / About / Contact.
+   Loads after base.css and the page's own stylesheet.
+   ========================================================================== */
+
+/* ---------- 1. Deep-forest hero band (replaces the pale, empty hero) ---------- */
+.cr-hero, .wl-hero, .ct-hero, .ord-hero, .cat-hero, .pp-hero, .dash-hero, .set-hero{
+  position:relative; overflow:hidden; color:#fff;
+  background:
+    radial-gradient(55% 130% at 90% 0%, rgba(200,155,60,.30) 0%, transparent 60%),
+    radial-gradient(45% 100% at 0% 100%, rgba(61,122,84,.28) 0%, transparent 65%),
+    linear-gradient(160deg, #1B3B33 0%, #0F2019 100%);
+  padding: 68px 0 76px;
+}
+.cr-hero::after, .wl-hero::after, .ct-hero::after, .ord-hero::after, .cat-hero::after, .pp-hero::after, .dash-hero::after, .set-hero::after{
+  content:""; position:absolute; inset:0; pointer-events:none; opacity:.5;
+  background-image: radial-gradient(rgba(255,255,255,.10) 1px, transparent 1.4px);
+  background-size: 22px 22px;
+  -webkit-mask-image: linear-gradient(90deg, transparent 30%, #000 100%);
+          mask-image: linear-gradient(90deg, transparent 30%, #000 100%);
+}
+.cr-hero > .container, .wl-hero > .container, .ct-hero > .container, .ord-hero > .container,
+.cat-hero > .container, .pp-hero > .container, .dash-hero > .container, .set-hero > .container{ position:relative; z-index:1; }
+
+.cr-hero h1, .wl-hero h1, .ct-hero h1, .ord-hero h1, .cat-hero h1, .pp-hero h1, .dash-hero h1, .set-hero h1{ color:#fff; font-size:42px; line-height:1.15; letter-spacing:-.01em; }
+.cr-hero p, .wl-hero p, .ct-hero p, .ord-hero p, .cat-hero p, .pp-hero p, .dash-hero p, .set-hero p{ color:#C5D3C8; }
+.cr-hero .eyebrow, .wl-hero .eyebrow, .ct-hero .eyebrow, .ord-hero .eyebrow, .pp-hero .eyebrow, .dash-hero .eyebrow, .set-hero .eyebrow{
+  background: rgba(255,255,255,.12); color:#EFD9A0; border:1px solid rgba(255,255,255,.14);
+}
+.cat-hero .cat-count-badge{ background: rgba(200,155,60,.22); color:#F1D98E; border:1px solid rgba(200,155,60,.4); }
+.cat-breadcrumb, .cat-breadcrumb a{ color:#B9C7BC; }
+.cat-breadcrumb a:hover{ color:#fff; }
+.cat-breadcrumb span{ color:#fff; }
+.cat-hero{ padding: 40px 0 64px; }
+.cat-hero-icon{ background: rgba(255,255,255,.10); border:1px solid rgba(255,255,255,.22); color:#F1D98E; box-shadow:none; backdrop-filter: blur(4px); }
+.cat-hero-row h1{ font-size:40px; }
+.cat-hero-row p{ max-width:560px; }
+.ct-currency label{ color:#C5D3C8; }
+.ct-currency select{ background: rgba(255,255,255,.95); }
+.pp-hero{ padding: 60px 0 70px; }
+.pp-hero p{ font-size:13.5px; }
+
+/* hero → content: a soft curved lip so the page doesn't look like stacked boxes */
+.wl-hero, .ct-hero, .set-hero{ padding-bottom: 92px; }
+/* tuned: tighter green bands on Track Order (img 1), Careers (img 7), Privacy (img 8) */
+.ord-hero{ padding: 46px 0 40px; }
+.cr-hero{ padding: 48px 0 60px; }
+.pp-hero{ padding: 52px 0 56px; }
+
+/* ---------- 2. Page canvas: warmer, less flat-white ---------- */
+.section{ background: transparent; }
+.cr-openings-section, .ct-section, .wl-section, .ord-section{ background: linear-gradient(180deg, var(--paper) 0%, var(--paper-2) 100%); }
+
+/* content overlaps the hero slightly for depth */
+.ord-search-card, .ord-list, .ct-layout, .wl-grid, .wl-empty, .ct-empty, .cr-values-grid{ position:relative; z-index:2; }
+.wl-section, .ct-section, .ord-section{ padding-top:0; margin-top:-44px; }
+.ord-section{ margin-top:0; padding-top:28px; padding-bottom:48px; }
+.wl-section > .container, .ct-section > .container, .ord-section > .container{ padding-top:0; }
+
+/* ---------- 3. Trust strip: refine ---------- */
+.trust-strip{ background:#0F2019; border-top:1px solid rgba(255,255,255,.06); border-bottom:1px solid rgba(255,255,255,.06); }
+.trust-strip-row{ padding:26px 0; }
+.wl-hero + .trust-strip, .ct-hero + .trust-strip, .ord-hero + .trust-strip{ margin-top:-44px; position:relative; z-index:3; border-radius:0; }
+.trust-strip + .section{ margin-top:0; padding-top:56px; }
+
+/* ---------- 4. Cards: soft elevation, gold hairline on top ---------- */
+.cr-value-card, .cr-job-card, .wl-card, .ord-card, .ord-search-card, .ord-result, .ct-item, .ct-summary,
+.dash-panel, .dash-stat-card, .dash-nav, .pp-toc, .chk-gate, .book-card{
+  box-shadow: 0 1px 2px rgba(22,48,42,.05), 0 10px 30px rgba(22,48,42,.07);
+  border-color: rgba(222,212,185,.8);
+}
+.cr-value-card:hover, .cr-job-card:hover, .wl-card:hover, .ord-card:hover, .ct-item:hover{
+  box-shadow: 0 2px 4px rgba(22,48,42,.06), 0 18px 40px rgba(22,48,42,.13); transform: translateY(-3px);
+}
+.cr-value-card, .cr-job-card, .wl-card, .ord-card, .ct-item{ transition: transform .2s ease, box-shadow .2s ease; }
+.ct-item{ border-left:3px solid var(--gold); }
+
+/* ---------- 5. Buttons ---------- */
+.btn-primary, .btn-hero-primary{ box-shadow: 0 6px 16px rgba(22,48,42,.22); }
+.btn-hero-ghost{ transition: color .15s, border-color .15s; }
+.btn-hero-ghost:hover{ color: var(--gold-dark); border-color: var(--ink); }
+.ord-card-actions .btn-hero-ghost, .cr-job-card .btn-hero-ghost, .ct-summary-actions .btn-hero-ghost{
+  border:1.5px solid var(--ink); padding:9px 20px; border-radius: var(--radius-s); background:transparent; display:inline-block;
+}
+.ord-card-actions .btn-hero-ghost:hover, .cr-job-card .btn-hero-ghost:hover, .ct-summary-actions .btn-hero-ghost:hover{ background: var(--ink); color:#fff; border-color: var(--ink); }
+.ord-card-actions{ align-items:center; }
+
+/* ---------- 6. Empty states: framed cards instead of floating text ---------- */
+.wl-empty, .ct-empty, .ord-notfound, .ord-empty, .search-empty{
+  background: var(--card); border:1px solid rgba(222,212,185,.8); border-radius: var(--radius-l);
+  box-shadow: 0 10px 30px rgba(22,48,42,.07); padding:48px 36px !important; max-width:520px;
+  position:relative; overflow:hidden;
+}
+.wl-empty::before, .ct-empty::before, .ord-notfound::before, .ord-empty::before, .search-empty::before{
+  content:""; position:absolute; top:0; left:0; right:0; height:3px; background: var(--gold);
+}
+.wl-empty-icon, .ct-empty-icon, .ord-empty-icon, .search-empty-icon{ width:72px; height:72px; background:#FBF2DC; }
+.wl-empty h3, .ct-empty h3, .ord-notfound h3, .ord-empty h3{ font-size:22px; }
+
+/* ---------- 7. CAREERS ---------- */
+.cr-hero{ text-align:left; }
+.cr-hero h1{ max-width:720px; margin:0 0 16px; font-size:46px; }
+.cr-hero p{ margin:0; max-width:560px; font-size:16px; }
+.cr-hero + .section{ padding-top:76px; }
+.cr-hero + .section .section-head, .cr-openings-section .section-head{ margin-bottom:44px; }
+.section-head .eyebrow{ margin-bottom:14px; }
+.cr-values-grid{ gap:24px; }
+.cr-value-card{ text-align:left; padding:32px 28px; }
+.cr-value-icon{ margin:0 0 20px; width:52px; height:52px; background:#FBF2DC; }
+.cr-value-card h4{ font-size:18px; }
+.cr-value-card p{ font-size:14px; }
+.cr-openings-section{ padding:80px 0 40px; }
+.cr-jobs-list{ gap:16px; max-width:860px; }
+.cr-job-card{ padding:24px 28px; border-left:3px solid var(--gold); }
+.cr-job-card::before{ display:none; }
+.cr-job-card h4{ font-size:17px; }
+.cr-no-fit{ margin-top:32px; }
+
+/* ---------- 8. PRIVACY ---------- */
+.pp-section{ background: linear-gradient(180deg, var(--paper), var(--paper-2)); padding: 36px 0 70px; }
+.pp-layout{ grid-template-columns: 260px 1fr; gap:40px; }
+.pp-toc{ padding:26px 24px; gap:4px; }
+.pp-toc a{ padding:8px 10px; border-radius:6px; font-size:13.5px; border-left:2px solid transparent; }
+.pp-toc a:hover{ background: var(--paper-2); border-left-color: var(--gold); color: var(--ink); }
+.pp-content{
+  background: var(--card); border:1px solid rgba(222,212,185,.8); border-radius: var(--radius-l);
+  box-shadow: 0 10px 30px rgba(22,48,42,.07); padding:44px 48px;
+}
+.pp-content > p:first-child{ font-size:16px; line-height:1.8; color: var(--charcoal); padding-bottom:26px; border-bottom:1px solid var(--line); }
+.pp-content h3{ font-size:20px; margin:36px 0 12px; padding-left:14px; border-left:3px solid var(--gold); scroll-margin-top:110px; }
+.pp-content p{ font-size:15px; line-height:1.85; }
+
+/* ---------- 9. CATEGORY / SEARCH ---------- */
+.cat-toolbar{ background: rgba(255,253,248,.92); backdrop-filter: blur(8px); border-bottom:1px solid var(--line); position:sticky; top:82px; z-index:50; box-shadow:0 6px 20px rgba(22,48,42,.06); }
+.cat-chip{ background:#fff; border:1.5px solid var(--line); }
+.cat-chip.is-active{ background: var(--ink); border-color: var(--ink); box-shadow:0 4px 12px rgba(22,48,42,.25); }
+.cat-grid-section{ background: linear-gradient(180deg, var(--paper), var(--paper-2)); padding-top:48px; padding-bottom:90px; }
+.cat-book-grid{ gap:26px; }
+.book-card{ padding:16px; border-radius: var(--radius-l); display:flex; flex-direction:column; }
+.book-card img{ height:260px; object-fit:contain; padding:14px; background: linear-gradient(180deg,#F3ECDA,#E9E0C8); border-radius:12px; }
+.book-card h4{ font-size:15.5px; display:-webkit-box; -webkit-line-clamp:2; -webkit-box-orient:vertical; overflow:hidden; min-height:40px; }
+.book-card .price-row{ margin-top:auto; padding-top:6px; }
+.book-card .price-now{ font-size:18px; }
+.btn-add-cart{ background: var(--ink); color:#fff; padding:11px; }
+.btn-add-cart:hover{ background: var(--gold); color: var(--ink); }
+.badge-sale{ top:26px; left:26px; box-shadow:0 4px 10px rgba(166,61,64,.35); }
+.cat-wishlist-btn{ top:26px; right:26px; box-shadow:0 4px 12px rgba(0,0,0,.15); }
+
+/* ---------- 10. WISHLIST ---------- */
+.wl-grid{ gap:26px; }
+.wl-card{ padding:16px; border-radius: var(--radius-l); }
+.wl-card img{ height:240px; object-fit:contain; padding:14px; background: linear-gradient(180deg,#F3ECDA,#E9E0C8); }
+.wl-remove-btn{ top:26px; right:26px; box-shadow:0 4px 12px rgba(0,0,0,.15); }
+.wl-move-btn{ padding:11px; }
+
+/* ---------- 11. CART ---------- */
+.ct-layout{ max-width:960px; gap:24px; padding-bottom:20px; }
+.ct-items, .ct-summary{ width:100%; box-sizing:border-box; }
+.ct-item{ border-radius: var(--radius-l); padding:26px; }
+.ct-item-imgwrap img{ width:96px; height:128px; object-fit:contain; background:#F3ECDA; padding:6px; }
+.ct-summary{ padding:26px; border-radius: var(--radius-l); background: linear-gradient(180deg,#fff,#FFFDF8); border-top:3px solid var(--gold); }
+.ct-summary h3{ font-size:22px; }
+.ct-checkout-btn{ padding:15px 38px; font-size:15px; }
+
+/* ---------- 12. ORDERS / TRACKING ---------- */
+.ord-hero{ text-align:left; }
+.ord-hero h1{ margin-bottom:10px; font-size:36px; }
+.ord-hero p{ font-size:15.5px; max-width:520px; margin:0; }
+.ord-search-card{ width:100%; max-width:none; margin:0 0 16px; padding:28px 32px; display:grid; grid-template-columns:minmax(0,1fr) auto; gap:0 16px; align-items:end; }
+.ord-search-card .field{ margin-bottom:0; }
+.ord-search-card input{ padding:14px 16px; font-size:15px; background:#fff; }
+.ord-search-card .ord-track-btn{ margin:0; padding:15px 34px; height:auto; }
+.ord-list{ max-width:900px; gap:22px; padding-bottom:20px; }
+.ord-card{ padding:28px; }
+.ord-card-books{ gap:12px; flex-wrap:wrap; }
+.ord-card-books img{ width:64px; height:88px; object-fit:contain; background: linear-gradient(180deg,#F3ECDA,#E9E0C8); padding:4px; border-radius:8px; box-shadow:0 4px 10px rgba(22,48,42,.12); font-size:0; }
+.ord-card-total{ font-size:16px; }
+.ord-invoice-btn{ padding:11px 20px; }
+.ord-result{ width:100%; max-width:none; margin:0; padding:30px 32px; }
+.ord-tl-step{ padding-bottom:32px; }
+.ord-tl-dot{ width:16px; height:16px; }
+.ord-notfound{ margin:0 0 20px; max-width:none; width:100%; padding:34px 32px; }
+.ord-hero + .ord-section, .ord-hero + .trust-strip{ }
+
+/* ---------- 13. DASHBOARD / SETTINGS / CHECKOUT ---------- */
+.dash-hero{ padding:56px 0 64px; }
+.dash-section{ padding:40px 0 20px; background: linear-gradient(180deg,var(--paper),var(--paper-2)); }
+.dash-layout{ position:relative; z-index:2; }
+.dash-nav a.is-active{ box-shadow:0 6px 14px rgba(22,48,42,.25); }
+.dash-stat-card{ padding:26px 18px; }
+.dash-stat-num{ font-size:28px; }
+.dash-panel{ padding:28px; }
+
+/* ---------- 14. Responsive ---------- */
+@media (max-width: 900px){
+  .cr-hero h1, .wl-hero h1, .ct-hero h1, .ord-hero h1, .cat-hero-row h1, .pp-hero h1{ font-size:32px; }
+  .pp-layout{ grid-template-columns:1fr; }
+  .pp-content{ padding:30px 24px; }
+  .cat-toolbar{ position:static; }
+  .ord-search-card{ grid-template-columns:1fr; gap:16px 0; }
+}
+@media (max-width: 640px){
+  .wl-hero, .ct-hero{ padding:52px 0 72px; }
+  .ord-hero{ padding:38px 0 34px; }
+  .cr-hero{ padding:40px 0 44px; }
+  .pp-hero{ padding:40px 0 44px; }
+  .book-card img, .wl-card img{ height:200px; }
+  .ct-item{ padding:20px; }
+}
+
+/* ---------- Careers hero: copy + bookstore illustration (img 7) ---------- */
+.cr-hero-row{ display:grid; grid-template-columns:minmax(0,1.15fr) minmax(0,.85fr); gap:48px; align-items:center; }
+.cr-hero-art{ display:flex; justify-content:flex-end; }
+.cr-hero-art img{ width:100%; max-width:400px; height:auto; display:block; border-radius:18px; box-shadow:0 18px 40px rgba(0,0,0,.28); }
+@media (max-width: 900px){
+  .cr-hero-row{ grid-template-columns:1fr; gap:28px; }
+  .cr-hero-art{ justify-content:flex-start; }
+  .cr-hero-art img{ max-width:340px; }
+}
+/* ---------- Track Order: stop overlap, align, tighten gaps ---------- */
+.ord-hero:has(+ .ord-section .ord-search-card){
+  padding-bottom: 40px !important;
+}
+.ord-section:has(.ord-search-card){
+  margin-top: 0 !important;
+  padding-top: 28px !important;
+  padding-bottom: 48px !important;
+}
+.ord-section .ord-search-card{
+  margin: 0 0 16px 0 !important;
+}
+.ord-section .ord-notfound,
+.ord-section .ord-result{
+  margin: 0 0 16px 0 !important;
+}
+
+/* ---------- Track Order: narrower, centered cards ---------- */
+.ord-section .ord-search-card,
+.ord-section .ord-notfound,
+.ord-section .ord-result{
+  max-width: 760px !important;
+  width: 100%;
+  margin-left: auto !important;
+  margin-right: auto !important;
+}
+

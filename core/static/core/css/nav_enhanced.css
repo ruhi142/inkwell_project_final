@@ -1,0 +1,70 @@
+/* Expanded primary navigation: badges, "More" menu, hamburger drawer.
+   Uses the existing theme variables only. Loaded after mega_menu.css. */
+
+.main-nav .nav-inner{ position:relative; }
+.main-nav .nav-list{ display:flex; align-items:center; gap:2px; }
+.main-nav .nav-toggle{ display:none; }
+
+.main-nav a:focus-visible,
+.main-nav .nav-dropdown-toggle:focus-visible{ outline:2px solid var(--ink); outline-offset:-2px; }
+.main-nav .nav-dropdown-toggle{ white-space:nowrap; }
+.main-nav a{ white-space:nowrap; }
+
+.nav-badge{
+  font-size:10px; font-weight:800; letter-spacing:.04em; text-transform:uppercase;
+  padding:2px 6px; border-radius:999px; background: var(--ink); color:#fff; line-height:1.3;
+}
+.main-nav a.active .nav-badge{ background:#fff; color: var(--ink); }
+
+/* "More" opens towards the left so it never runs off the screen */
+.main-nav .nav-more .nav-dropdown-menu{ left:auto; right:0; min-width:150px; }
+
+/* Slightly tighter spacing so 9 items fit on mid-size laptops */
+@media (max-width:1350px){
+  .main-nav a, .main-nav .nav-dropdown-toggle{ padding:8px 10px; }
+}
+
+/* ---------- Tablet + mobile: hamburger drawer ---------- */
+@media (max-width:1350px){
+  .main-nav .container{ height:auto; display:block; overflow:visible; padding-top:0; padding-bottom:0; }
+  .main-nav .nav-toggle{
+    display:flex; align-items:center; gap:12px; width:100%; min-height:48px;
+    background:none; border:0; font:inherit; font-size:14px; font-weight:700; color: var(--ink); cursor:pointer;
+  }
+  .nav-toggle-bars, .nav-toggle-bars::before, .nav-toggle-bars::after{
+    display:block; width:20px; height:2px; background:currentColor; content:""; position:relative; border-radius:2px;
+  }
+  .nav-toggle-bars::before{ position:absolute; top:-6px; left:0; }
+  .nav-toggle-bars::after{ position:absolute; top:6px; left:0; }
+  .main-nav .nav-inner.is-open .nav-toggle-bars{ background:transparent; }
+  .main-nav .nav-inner.is-open .nav-toggle-bars::before{ top:0; transform:rotate(45deg); }
+  .main-nav .nav-inner.is-open .nav-toggle-bars::after{ top:0; transform:rotate(-45deg); }
+
+  .main-nav .nav-list{
+    display:none; flex-direction:column; align-items:stretch; gap:0;
+    max-height:calc(100vh - 150px); max-height:calc(100dvh - 150px);
+    overflow-y:auto; overscroll-behavior:contain; padding-bottom:10px;
+    border-top:1px solid rgba(22,48,42,.25);
+  }
+  .main-nav .nav-inner.is-open .nav-list{ display:flex; }
+  .main-nav .nav-list > a,
+  .main-nav .nav-list .nav-dropdown-toggle{
+    min-height:48px; width:100%; justify-content:space-between; border-radius:0; padding:12px 6px;
+  }
+  .main-nav .nav-dropdown{ width:100%; position:static; }
+
+  /* dropdown panels become inline accordions inside the drawer */
+  .main-nav .nav-dropdown-menu,
+  .main-nav .nav-dropdown-menu.mega-menu{
+    position:static; display:none; opacity:1; visibility:visible; transform:none;
+    max-height:none; overflow:visible; box-shadow:none; border:0; border-radius:0;
+    background:rgba(22,48,42,.08); padding:6px 10px 10px; margin:0 0 6px;
+  }
+  .main-nav .nav-dropdown.is-open .nav-dropdown-menu{ display:flex; }
+  .main-nav .nav-dropdown.is-open .nav-dropdown-menu.mega-menu{ display:block; }
+  .main-nav .nav-dropdown-menu a{ min-height:44px; display:flex; align-items:center; }
+  .main-nav .mega-cols{ grid-template-columns:1fr 1fr; }
+}
+@media (max-width:480px){
+  .main-nav .mega-cols{ grid-template-columns:1fr; }
+}

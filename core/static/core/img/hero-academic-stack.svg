@@ -1,0 +1,37 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 230 320" role="img" aria-label="Stack of academic books with a graduation cap">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#F6F1E4"/><stop offset="1" stop-color="#E9E0C8"/></linearGradient>
+    <linearGradient id="shelf" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#1F433A"/><stop offset="1" stop-color="#16302A"/></linearGradient>
+  </defs>
+  <rect width="230" height="320" fill="url(#bg)"/>
+  <circle cx="190" cy="52" r="46" fill="#C89B3C" opacity=".18"/>
+  <circle cx="30" cy="250" r="60" fill="#3D7A54" opacity=".12"/>
+  <!-- standing books -->
+  <g>
+    <rect x="34" y="78" width="26" height="150" rx="3" fill="#A63D40"/>
+    <rect x="34" y="96" width="26" height="6" fill="#C89B3C"/><rect x="34" y="206" width="26" height="6" fill="#C89B3C"/>
+    <rect x="62" y="64" width="30" height="164" rx="3" fill="#16302A"/>
+    <rect x="62" y="84" width="30" height="5" fill="#C89B3C"/><rect x="62" y="204" width="30" height="5" fill="#C89B3C"/>
+    <rect x="70" y="116" width="14" height="40" rx="2" fill="none" stroke="#C89B3C" stroke-width="1.5"/>
+    <rect x="94" y="90" width="24" height="138" rx="3" fill="#3D7A54"/>
+    <rect x="94" y="108" width="24" height="5" fill="#F6F1E4" opacity=".8"/><rect x="94" y="200" width="24" height="5" fill="#F6F1E4" opacity=".8"/>
+    <g transform="rotate(14 150 228)">
+      <rect x="124" y="82" width="28" height="146" rx="3" fill="#C89B3C"/>
+      <rect x="124" y="102" width="28" height="5" fill="#16302A"/><rect x="124" y="204" width="28" height="5" fill="#16302A"/>
+    </g>
+  </g>
+  <!-- shelf stack -->
+  <rect x="22" y="228" width="186" height="26" rx="4" fill="#16302A"/>
+  <rect x="22" y="240" width="186" height="3" fill="#C89B3C" opacity=".8"/>
+  <rect x="30" y="254" width="170" height="24" rx="4" fill="#A63D40"/>
+  <rect x="30" y="263" width="170" height="3" fill="#F6F1E4" opacity=".7"/>
+  <rect x="18" y="278" width="194" height="26" rx="4" fill="#3D7A54"/>
+  <rect x="18" y="288" width="194" height="3" fill="#F6F1E4" opacity=".7"/>
+  <!-- graduation cap on top of the stack -->
+  <g transform="translate(130 196)">
+    <polygon points="0,-18 38,-4 0,10 -38,-4" fill="#16302A"/>
+    <path d="M-22 4 v14 q22 12 44 0 v-14 l-22 9z" fill="#1F433A"/>
+    <line x1="34" y1="-3" x2="34" y2="22" stroke="#C89B3C" stroke-width="2"/>
+    <circle cx="34" cy="24" r="3.5" fill="#C89B3C"/>
+  </g>
+</svg>

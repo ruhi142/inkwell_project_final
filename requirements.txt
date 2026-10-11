@@ -1,0 +1,7 @@
+Django==5.2.17
+python-dotenv
+dj-database-url
+psycopg2-binary
+razorpay
+pillow
+django-jazzmin

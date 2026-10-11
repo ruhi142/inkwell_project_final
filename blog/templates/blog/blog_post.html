@@ -1,0 +1,52 @@
+{% extends "core/base.html" %}
+{% load static %}
+
+{% block title %}{{ post.title }} — Inkwell Books{% endblock %}
+{% block meta_description %}{{ post.excerpt }}{% endblock %}
+
+{% block extra_css %}
+<link rel="stylesheet" href="{% static 'core/css/inner.css' %}">
+<link rel="stylesheet" href="{% static 'blog/css/blog.css' %}">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": "{{ post.title|escapejs }}",
+  "datePublished": "{{ post.date }}",
+  "author": {"@type": "Person", "name": "{{ post.author|escapejs }}"},
+  "description": "{{ post.excerpt|escapejs }}"
+}
+</script>
+{% endblock %}
+
+{% block content %}
+<section class="pp-hero">
+  <div class="container">
+    <span class="eyebrow">{{ post.kind }}</span>
+    <h1>{{ post.title }}</h1>
+    <p>{{ post.date_obj|date:"d M Y" }} · {{ post.author }}</p>
+  </div>
+</section>
+
+<section class="section blog-section">
+  <div class="container blog-article-wrap">
+    <article class="blog-article">
+      {% if post.book %}
+      <p class="blog-book">Book: <strong>{{ post.book.title }}</strong> by {{ post.book.author }}
+        {% if post.book.link %}· <a href="{{ post.book.link }}">Shop this book</a>{% endif %}</p>
+      {% endif %}
+      {% for para in post.body %}<p>{{ para }}</p>{% endfor %}
+      <p><a class="blog-more" href="{% url 'blog:list' %}">← All posts</a></p>
+    </article>
+
+    {% if more %}
+    <aside class="blog-aside" aria-label="More posts">
+      <h2>More to read</h2>
+      {% for p in more %}
+      <a href="{% url 'blog:post' p.slug %}">{{ p.title }}</a>
+      {% endfor %}
+    </aside>
+    {% endif %}
+  </div>
+</section>
+{% endblock %}

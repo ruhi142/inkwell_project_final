@@ -1,0 +1,38 @@
+{% extends "core/base.html" %}
+{% load static %}
+
+{% block title %}Book Reviews & Reading Guides — Inkwell Books{% endblock %}
+{% block meta_description %}Honest book reviews, reading lists and buying guides from the Inkwell team.{% endblock %}
+
+{% block extra_css %}
+<link rel="stylesheet" href="{% static 'core/css/inner.css' %}">
+<link rel="stylesheet" href="{% static 'blog/css/blog.css' %}">
+{% endblock %}
+
+{% block content %}
+<section class="pp-hero">
+  <div class="container">
+    <span class="eyebrow">Blog</span>
+    <h1>Book reviews &amp; reading guides</h1>
+    <p>Honest recommendations from the Inkwell team.</p>
+  </div>
+</section>
+
+<section class="section blog-section">
+  <div class="container">
+    <div class="blog-grid">
+      {% for post in posts %}
+      <article class="blog-card">
+        <span class="blog-kind">{{ post.kind }}</span>
+        <h2><a href="{% url 'blog:post' post.slug %}">{{ post.title }}</a></h2>
+        <p class="blog-meta">{{ post.date_obj|date:"d M Y" }} · {{ post.author }}</p>
+        <p>{{ post.excerpt }}</p>
+        <a class="blog-more" href="{% url 'blog:post' post.slug %}">Read more →</a>
+      </article>
+      {% empty %}
+      <p>No posts yet — check back soon.</p>
+      {% endfor %}
+    </div>
+  </div>
+</section>
+{% endblock %}

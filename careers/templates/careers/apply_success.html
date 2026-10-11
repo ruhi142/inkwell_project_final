@@ -1,0 +1,25 @@
+{% extends "core/base.html" %}
+{% load static %}
+
+{% block title %}Application received — Inkwell Books{% endblock %}
+
+{% block extra_css %}
+<link rel="stylesheet" href="{% static 'core/css/careers.css' %}">
+<link rel="stylesheet" href="{% static 'core/css/inner.css' %}">
+<link rel="stylesheet" href="{% static 'careers/css/apply.css' %}">
+{% endblock %}
+
+{% block content %}
+<section class="section ap-section">
+  <div class="container">
+    <div class="ap-card ap-done">
+      <div class="ap-tick"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="m5 12 5 5 9-10"/></svg></div>
+      <h2>Application received!</h2>
+      <p>Thanks, {{ application.full_name }}. We've got your application for <strong>{{ job.title }}</strong>.</p>
+      <p class="ap-ref">Reference: <strong>{{ application.reference }}</strong></p>
+      <p class="ap-sub">A confirmation has been sent to {{ application.email }}. We'll contact you if your profile is a match.</p>
+      <a href="{% url 'careers:list' %}" class="btn-primary ap-submit">Back to careers</a>
+    </div>
+  </div>
+</section>
+{% endblock %}

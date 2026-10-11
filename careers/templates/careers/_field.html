@@ -1,0 +1,5 @@
+<div class="ap-field{% if field.errors %} has-error{% endif %}">
+  <label for="{{ field.id_for_label }}">{{ field.label }}{% if field.field.required %} <span class="ap-req">*</span>{% else %} <span class="ap-opt">(optional)</span>{% endif %}</label>
+  {{ field }}
+  {% for err in field.errors %}<p class="ap-err">{{ err }}</p>{% endfor %}
+</div>

@@ -1,0 +1,38 @@
+/* Blog pages — theme variables only */
+.blog-section{ background: linear-gradient(180deg, var(--paper), var(--paper-2)); padding:40px 0 70px; }
+.blog-grid{ display:grid; grid-template-columns:repeat(auto-fill, minmax(280px, 1fr)); gap:22px; }
+.blog-card{
+  background: var(--card); border:1px solid var(--line); border-top:3px solid var(--gold);
+  border-radius: var(--radius-l); padding:24px; box-shadow: var(--shadow-card);
+  display:flex; flex-direction:column; gap:8px;
+}
+.blog-card h2{ font-family: var(--font-display); font-size:20px; line-height:1.25; margin:0; }
+.blog-card h2 a{ color: var(--ink); }
+.blog-card h2 a:hover{ color: var(--gold-dark); }
+.blog-card p{ margin:0; color: var(--charcoal); font-size:14px; line-height:1.6; }
+.blog-meta{ color: var(--charcoal-60) !important; font-size:12.5px !important; }
+.blog-kind{
+  align-self:flex-start; font-size:11px; font-weight:700; letter-spacing:.06em; text-transform:uppercase;
+  padding:3px 10px; border-radius:999px; background: var(--paper-2); color: var(--gold-dark);
+}
+.blog-more{ font-weight:700; font-size:14px; color: var(--gold-dark); margin-top:auto; }
+
+.blog-article-wrap{ display:grid; grid-template-columns:minmax(0,1fr) 280px; gap:32px; align-items:start; }
+.blog-article{
+  background: var(--card); border:1px solid var(--line); border-radius: var(--radius-l);
+  padding:32px; box-shadow: var(--shadow-card);
+}
+.blog-article p{ font-size:16px; line-height:1.8; color: var(--charcoal); margin:0 0 16px; }
+.blog-book{ padding:12px 16px; border-left:3px solid var(--gold); background: var(--paper-2); border-radius:8px; }
+.blog-aside{
+  background: var(--card); border:1px solid var(--line); border-radius: var(--radius-l);
+  padding:20px; display:flex; flex-direction:column; gap:10px;
+}
+.blog-aside h2{ font-family: var(--font-display); font-size:16px; margin:0 0 4px; color: var(--ink); }
+.blog-aside a{ font-size:14px; font-weight:600; color: var(--ink); line-height:1.4; }
+.blog-aside a:hover{ color: var(--gold-dark); }
+
+@media (max-width: 900px){
+  .blog-article-wrap{ grid-template-columns:1fr; }
+  .blog-article{ padding:22px; }
+}

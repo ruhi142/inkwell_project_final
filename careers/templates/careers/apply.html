@@ -1,0 +1,109 @@
+{% extends "core/base.html" %}
+{% load static %}
+
+{% block title %}Apply — {{ job.title }} · Inkwell Books{% endblock %}
+{% block meta_description %}Apply for {{ job.title }} at Inkwell Books.{% endblock %}
+
+{% block extra_css %}
+<link rel="stylesheet" href="{% static 'core/css/careers.css' %}">
+<link rel="stylesheet" href="{% static 'core/css/inner.css' %}">
+<link rel="stylesheet" href="{% static 'careers/css/apply.css' %}">
+{% endblock %}
+
+{% block content %}
+
+<section class="cr-hero ap-hero">
+  <div class="container">
+    <a href="{% url 'careers:list' %}" class="ap-back">← All openings</a>
+    <span class="eyebrow">Apply Now</span>
+    <h1>{{ job.title }}</h1>
+    <p>{{ job.meta_line }}</p>
+  </div>
+</section>
+
+<section class="section ap-section">
+  <div class="container ap-grid">
+
+  <!-- ===== Application form ===== -->
+  <div class="ap-card">
+    <h2>Your application</h2>
+    <p class="ap-sub">Fields marked <span class="ap-req">*</span> are required.</p>
+
+    {% if form.non_field_errors %}
+      <div class="ap-alert">{{ form.non_field_errors }}</div>
+    {% endif %}
+
+    <form method="post" enctype="multipart/form-data" id="applyForm" novalidate>
+      {% csrf_token %}
+
+      <div class="ap-hp" aria-hidden="true">{{ form.website }}</div>
+
+      <h3 class="ap-group">About you</h3>
+      <div class="ap-row">
+        {% include "careers/_field.html" with field=form.full_name %}
+        {% include "careers/_field.html" with field=form.email %}
+      </div>
+      <div class="ap-row">
+        {% include "careers/_field.html" with field=form.phone %}
+        {% include "careers/_field.html" with field=form.current_location %}
+      </div>
+
+      <h3 class="ap-group">Experience</h3>
+      <div class="ap-row">
+        {% include "careers/_field.html" with field=form.current_company %}
+        {% include "careers/_field.html" with field=form.experience_years %}
+      </div>
+      <div class="ap-row">
+        {% include "careers/_field.html" with field=form.notice_period %}
+        {% include "careers/_field.html" with field=form.expected_salary %}
+      </div>
+      <div class="ap-row">
+        {% include "careers/_field.html" with field=form.linkedin_url %}
+        {% include "careers/_field.html" with field=form.portfolio_url %}
+      </div>
+
+      <h3 class="ap-group">Tell us more</h3>
+      {% if form.screening_answer %}
+        {% include "careers/_field.html" with field=form.screening_answer %}
+      {% endif %}
+      {% include "careers/_field.html" with field=form.cover_letter %}
+      {% include "careers/_field.html" with field=form.resume %}
+
+      <button type="submit" class="btn-primary ap-submit" id="applySubmit">Submit application</button>
+      <p class="ap-note">Your details are used only to evaluate your application for this role.</p>
+    </form>
+  </div>
+
+  <!-- ===== Job details ===== -->
+  <aside class="ap-side">
+    <div class="ap-info">
+      <h4>About the role</h4>
+      <p>{{ job.summary|linebreaksbr }}</p>
+      <ul class="ap-facts">
+        <li><span>Department</span><strong>{{ job.department }}</strong></li>
+        <li><span>Location</span><strong>{{ job.location }}</strong></li>
+        <li><span>Type</span><strong>{{ job.get_job_type_display }}</strong></li>
+      </ul>
+    </div>
+    {% if job.responsibilities_list %}
+    <div class="ap-info">
+      <h4>What you'll do</h4>
+      <ul class="ap-bullets">{% for item in job.responsibilities_list %}<li>{{ item }}</li>{% endfor %}</ul>
+    </div>
+    {% endif %}
+    {% if job.requirements_list %}
+    <div class="ap-info">
+      <h4>What we're looking for</h4>
+      <ul class="ap-bullets">{% for item in job.requirements_list %}<li>{{ item }}</li>{% endfor %}</ul>
+    </div>
+    {% endif %}
+  </aside>
+
+  </div>
+</section>
+
+{% endblock %}
+
+{% block extra_js %}
+<script src="{% static 'careers/js/apply.js' %}"></script>
+{% endblock %}
